@@ -1,13 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'button';
-import { Display } from 'display';
+import SimpleGoldenAcornApp from './SimpleGoldenAcornApp'
+import Navbar from './components/Navbar'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Home from './components/Home'
 
-class SimpleGoldenAcornApp extends React.Component {
+class App extends React.Component {
     render() {
-        return ()
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <Navbar />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/simple/states/" component={SimpleGoldenAcornApp} /> 
+                </div>
+            </BrowserRouter>
+        )
     }
 }
 
 const mountNode = document.getElementById('root');
-ReactDOM.render(<SimpleGoldenAcornApp />, mountNode);
+ReactDOM.render(<App />, mountNode);
