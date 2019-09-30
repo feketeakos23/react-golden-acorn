@@ -9,7 +9,7 @@ class SimpleGoldenAcornApp extends React.Component {
         this.state = { number: 0 };
         this.buyOne = this.buyOne.bind(this);
         this.eatOne = this.eatOne.bind(this);
-        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     buyOne() {
@@ -22,7 +22,7 @@ class SimpleGoldenAcornApp extends React.Component {
         }
     }
 
-    handleKeyDown(event) {
+    handleKeyPress(event) {
         if (event.keyCode === 38) {
             this.buyOne();
         } else if (event.keyCode === 40) {
@@ -31,7 +31,7 @@ class SimpleGoldenAcornApp extends React.Component {
     }
 
     componentDidMount() {
-        document.addEventListener('keydown', this.handleKeyDown);
+        document.addEventListener('keydown', this.handleKeyPress);
     }
 
     render() {
